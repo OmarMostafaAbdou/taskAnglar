@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div
+      class="card col-4"
+      style="width: 20rem; margin: auto"
+      *ngFor="let item of dataAPi"
+    >
+      <img [src]="item.imgURL" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <div class="card-header">
+          <h2>{{ item.name }}</h2>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <h3>ID: {{ item._id }}</h3>
+          </li>
+          <li class="list-group-item">
+            <h3>Price: {{ item.price }}</h3>
+          </li>
+          <li class="list-group-item">
+            <h3 [class.text-danger]="item.quantity < 5">
+              quantity:{{ item.quantity }}
+            </h3>
+          </li>
+          <li class="list-group-item">
+            <h3>category: {{ item.categoryID }}</h3>
+          </li>
+          <li class="list-group-item">
+            <button class="btn btn-danger" (click)="cart(item._id)">
+              addtocart
+            </button>
+          </li>
+          <li class="list-group-item">
+            <button
+              class="btn btn-primary"
+              [routerLink]="['/productdetails', item._id]"
+            >
+              detailes
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

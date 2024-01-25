@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="card col-4" style="width: 20rem; margin: auto">
+      <img [src]="prodbyid?.imgURL" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <div class="card-header">
+          <h2>{{ prodbyid?.name }}</h2>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <h3>ID: {{ prodbyid?._id }}</h3>
+          </li>
+          <li class="list-group-item">
+            <h3>Price: {{ prodbyid?.price }}</h3>
+          </li>
+          <li class="list-group-item">
+            <h3 [class.text-danger]="prodbyid?.quantity">
+              quantity:{{ prodbyid?.quantity }}
+            </h3>
+          </li>
+          <li class="list-group-item">
+            <h3>category: {{ prodbyid?.categoryID }}</h3>
+          </li>
+          <li class="list-group-item">
+            <h3>color: {{ prodbyid?.colors }}</h3>
+          </li>
+          <li class="list-group-item">
+            <h3>date: {{ prodbyid?.createdDate }}</h3>
+          </li>
+          <li class="list-group-item">
+            <button class="btn btn-danger" (click)="cart(prodbyid?._id)">
+              addtocart
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
